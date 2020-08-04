@@ -84,7 +84,7 @@ pipeline {
                 dir('terraform/') {
                 sh "sudo terraform destroy -force"
                 }
-                echo 'Apagando repo...
+                echo 'Apagando repo...'
 
             }
 

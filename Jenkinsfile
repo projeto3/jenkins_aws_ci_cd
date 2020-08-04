@@ -34,8 +34,6 @@ pipeline {
                     sh 'cp /var/lib/jenkins/workspace/provider.tf .'
                 sh "sudo terraform init"
                     
-                        sh 'terraform output aws_dns > aws_dns.txt'
-                        sh 'terraform output aws_dns > hosts'
                 }
                 echo 'Configuring..'
 
@@ -47,6 +45,9 @@ pipeline {
                         steps {
                     dir('terraform/') {
                     sh "sudo terraform apply -auto-approve"
+                        
+                        sh 'terraform output aws_dns > aws_dns.txt'
+                        sh 'terraform output aws_dns > hosts'
                     }
                     echo 'Criando Instancia..'
 

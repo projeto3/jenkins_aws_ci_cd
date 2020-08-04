@@ -5,7 +5,7 @@ resource "aws_instance" "wwws_jks_ci_cd" {
   subnet_id     = "subnet-b36ef198"
   associate_public_ip_address	= "true"
   key_name	    = "aws_commvault"
-  security_groups = "default"
+  security_group_id = "sg-991899f2"
 //  load_balancers = ["${aws_elb.my-elb.name}"]
   tags = {
         Name = "DEV Teste Infraesturura Agil"

@@ -13,10 +13,10 @@ resource "aws_instance" "wwws_jks_ci_cd" {
         Setor = "DTI"
     }
 output "aws_ip" {
-    value = "${aws_instance.wwws_jks_ci_cd.public_ip}"
+    value = aws_instance.wwws_jks_ci_cd.public_ip
 }
 
 output "aws_dns" {
-    value = "${aws_instance.wwws_jks_ci_cd.public_dns}"
+    value = aws_instance.wwws_jks_ci_cd.public_dns
 }
 }

@@ -1,6 +1,6 @@
 resource "aws_elb" "my-elb" {
   name = "my-elb"
-  subnets = ["${aws_subnet.main-public-1.id}", "${aws_subnet.main-public-2.id}"]
+  subnets = "subnet-b36ef198", "subnet-02e43116e384ce017"
  // security_groups = ["${aws_security_group.elb-securitygroup.id}"]
  listener {
     instance_port = 80
@@ -20,6 +20,6 @@ resource "aws_elb" "my-elb" {
   connection_draining = true
   connection_draining_timeout = 400
   tags = {
-    Name = "Projeto3-elb"
+    Name = "wwwsdev-elb"
   }
 }

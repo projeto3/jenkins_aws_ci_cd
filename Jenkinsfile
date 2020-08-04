@@ -35,7 +35,7 @@ pipeline {
                 
                 echo 'Building..'
                 }
-            }
+            
 
         }
          stage('Config') {

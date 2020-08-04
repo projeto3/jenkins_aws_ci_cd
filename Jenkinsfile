@@ -22,7 +22,7 @@ pipeline {
 
             steps {
    
-                git url: 'https://github.com/projeto3/projeto3.git'
+                git url: 'https://github.com/projeto3/jenkins_aws_ci_cd.git'
                 
                 echo 'Building..'
 

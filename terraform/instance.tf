@@ -1,8 +1,8 @@
 
-resource "aws_instance" "projeto3" {
+resource "aws_instance" "wwws_jks_ci_cd" {
   ami           = "ami-6871a115"
   instance_type = "t2.micro"
-//  subnet_id     = "subnet-04ddf27ca8d47df64"
-  key_name	    = "projeto3"
+//  subnet_id     = "subnet-b36ef198"
+  key_name	    = "aws_commvault"
 //  load_balancers = ["${aws_elb.my-elb.name}"]
 }

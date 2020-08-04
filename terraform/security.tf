@@ -1,4 +1,4 @@
-resource "aws_security_group" "webservers" {
+resource "aws_security_group" "wwws_jks_ci_cd" {
   name        = "allow_http"
   description = "Allow http inbound traffic"
   vpc_id      = "${aws_vpc.terra_vpc.id}"

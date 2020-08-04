@@ -12,7 +12,6 @@ resource "aws_instance" "wwws_jks_ci_cd" {
         Projeto = "Infraestrutura como codigo"
         Setor = "DTI"
     }
-}
 output "aws_ip" {
     value = "${aws_instance.wwws_jks_ci_cd.public_ip}"
 }

@@ -86,7 +86,10 @@ pipeline {
                 sh "sudo terraform destroy -force"
                     sh "sudo rm -r *"
                 }
-                echo 'Apagando repo...'
+                echo 'Apagando repo... GIT'
+                 dir('/') {
+                    sh "sudo rm -r *"
+                }
 
             }
 

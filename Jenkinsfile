@@ -88,7 +88,7 @@ pipeline {
                 }
                 echo 'Apagando repo... GIT'
                  dir('/') {
-                    sh "sudo rm -r *"
+                    sh "sudo rm -rf *"
                 }
 
             }

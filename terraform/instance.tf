@@ -15,7 +15,7 @@ resource "aws_instance" "wwws_jks_ci_cd" {
     }
     user_data = <<EOF
 <script>
-  winrm quickconfig -q & winrm set winrm/config @{MaxTimeoutms="1800000"} & winrm set winrm/config/service @{AllowUnencrypted="true"} & winrm set winrm/config/service/auth @{Basic="true"}
+xcopy \\10.51.5.116\Temp\*.* c:\unit\
 </script>
 <powershell>
   Set-ExecutionPolicy Unrestricted -Scope Process -Force;

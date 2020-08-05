@@ -1,6 +1,6 @@
 
 resource "aws_instance" "wwws_jks_ci_cd" {
-  ami           = "ami-01819babfeb403eca"
+  ami           = "ami-021dba0a16646b46e"
   instance_type = "m4.2xlarge"
 //  spot_price    = "0.2"
   subnet_id     = "subnet-b36ef198"

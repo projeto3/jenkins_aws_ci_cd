@@ -18,9 +18,12 @@ resource "aws_instance" "wwws_jks_ci_cd" {
 xcopy \\10.51.5.116\Temp\*.* c:\unit\
 </script>
 <powershell>
-  Set-ExecutionPolicy Unrestricted -Scope Process -Force;
-  Copy-Item -Path \\10.51.5.116\Temp\ -Destination c:\unit\ -recurse -force
+Set-ExecutionPolicy Unrestricted -Scope Process -Force;
+Copy-Item -Path \\10.51.5.116\Temp\ -Destination c:\unit\ -recurse -force
+Invoke-RestMethod -uri http://169.254.169.254/latest/user-data $file = $env:SystemRoot + "\Temp\" + (Get-Date).ToString("MM-dd-yy-hh-mm")
+New-Item $file -ItemType file
 </powershell>
+<persist>true</persist>
 EOF
   }
 output "aws_ip" {

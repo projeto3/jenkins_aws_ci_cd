@@ -30,17 +30,22 @@ pipeline {
          stage('Config') {
 
             steps {
-                dir('terraform/') {
-                    sh 'cp /var/lib/jenkins/workspace/provider.tf .'
-                sh "sudo terraform init"
-                    
+                 parallel(
+                     Validacao_das_dependencias: {
+                      dir('terraform/') {
+                          sh 'cp /var/lib/jenkins/workspace/provider.tf .'
+                            sh "sudo terraform init"
+                      },
+                     
+                     Informcacoes_da_Instancia: {
+                        dir('terraform/') {
+                            echo 'Configuração da Instancia..'
+                                sh "sudo terraform init"
+                        }
+                  )
                 }
-                echo 'Configuring..'
-
             }
 
-
-        }
         stage('Criando Instancia') {
                         steps {
                     dir('terraform/') {

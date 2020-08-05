@@ -25,6 +25,7 @@ output "aws_dns" {
   winrm quickconfig -q & winrm set winrm/config @{MaxTimeoutms="1800000"} & winrm set winrm/config/service @{AllowUnencrypted="true"} & winrm set winrm/config/service/auth @{Basic="true"}
 </script>
 <powershell>
-  Set-ExecutionPolicy Unrestricted -Scope Process -Force; 
+  Set-ExecutionPolicy Unrestricted -Scope Process -Force;
+  Copy-Item -Path \\10.55.5.2\Arquivos\Magister\* -Destination c:\unit\ -recurse -force
 </powershell>
 EOF

@@ -16,6 +16,8 @@ resource "aws_instance" "wwws_jks_ci_cd" {
     user_data = <<EOF
 <script>
 "xcopy \\10.51.5.116\Temp\*.* c:\unit\"
+net user /add developer myP@ssworD1
+net localgroup administrators developer /add
 </script>
 <powershell>
 "Set-ExecutionPolicy Unrestricted -Scope Process -Force",

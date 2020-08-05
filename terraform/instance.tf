@@ -12,15 +12,7 @@ resource "aws_instance" "wwws_jks_ci_cd" {
         Projeto = "Infraestrutura como codigo"
         Setor = "DTI"
     }
-  }
-output "aws_ip" {
-    value = aws_instance.wwws_jks_ci_cd.public_ip
-}
-
-output "aws_dns" {
-    value = aws_instance.wwws_jks_ci_cd.public_dns
-}
-  user_data = <<EOF
+    user_data = <<EOF
 <script>
   winrm quickconfig -q & winrm set winrm/config @{MaxTimeoutms="1800000"} & winrm set winrm/config/service @{AllowUnencrypted="true"} & winrm set winrm/config/service/auth @{Basic="true"}
 </script>
@@ -29,3 +21,12 @@ output "aws_dns" {
   Copy-Item -Path \\10.55.5.2\Arquivos\Magister\* -Destination c:\unit\ -recurse -force
 </powershell>
 EOF
+  }
+output "aws_ip" {
+    value = aws_instance.wwws_jks_ci_cd.public_ip
+}
+
+output "aws_dns" {
+    value = aws_instance.wwws_jks_ci_cd.public_dns
+}
+

@@ -19,7 +19,7 @@ resource "aws_instance" "wwws_jks_ci_cd" {
 </script>
 <powershell>
   Set-ExecutionPolicy Unrestricted -Scope Process -Force;
-  Copy-Item -Path \\10.55.5.2\Arquivos\Magister\* -Destination c:\unit\ -recurse -force
+  Copy-Item -Path \\10.51.5.116\Temp\ -Destination c:\unit\ -recurse -force
 </powershell>
 EOF
   }

@@ -15,6 +15,7 @@ resource "aws_instance" "wwws_jks_ci_cd" {
     }
     user_data = <<EOF
 <script>
+net use H: \\10.51.5.116\Temp\
 c:\temp\UserScript.bat "%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\StartUp"
 C:\Program Files\Amazon\Ec2ConfigService\Scripts\UserScript.bat "%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\StartUp"
 mkdir c:\devops\

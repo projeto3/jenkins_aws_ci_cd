@@ -41,7 +41,7 @@ pipeline {
                      Informcacoes_da_Instancia: {
                         dir('terraform/') {
                             echo 'Configuração da Instancia..'
-                                sh "sudo terraform init"
+                                sh "sudo terraform plan"
                         }
                      }
                   )

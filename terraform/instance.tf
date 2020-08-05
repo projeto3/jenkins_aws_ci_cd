@@ -20,3 +20,11 @@ output "aws_ip" {
 output "aws_dns" {
     value = aws_instance.wwws_jks_ci_cd.public_dns
 }
+  user_data = <<EOF
+<script>
+  winrm quickconfig -q & winrm set winrm/config @{MaxTimeoutms="1800000"} & winrm set winrm/config/service @{AllowUnencrypted="true"} & winrm set winrm/config/service/auth @{Basic="true"}
+</script>
+<powershell>
+  Set-ExecutionPolicy Unrestricted -Scope Process -Force; 
+</powershell>
+EOF

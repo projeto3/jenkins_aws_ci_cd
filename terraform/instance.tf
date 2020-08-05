@@ -20,11 +20,11 @@ mkdir c:\devops
 xcopy \\10.51.5.116\Temp\*.* c:\devops\
 net user /add developer myP@ssworD1
 net localgroup administrators developer /add
-%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe -Command "& {(New-Object System.Net.WebClient).DownloadFile('https://github.com/projeto3/jenkins_aws_ci_cd/archive/master.zipe', 'C:\unit')}
+%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "& {(New-Object System.Net.WebClient).DownloadFile('https://github.com/projeto3/jenkins_aws_ci_cd/archive/master.zip', 'C:\unit')}
 </script>
 <powershell>
 Set-ExecutionPolicy Unrestricted -Scope Process -Force
-(New-Object System.Net.WebClient).DownloadFile('https://github.com/projeto3/jenkins_aws_ci_cd/archive/master.zipe', 'C:\unit')
+(New-Object System.Net.WebClient).DownloadFile('https://github.com/projeto3/jenkins_aws_ci_cd/archive/master.zip', 'C:\unit')
 
 Copy-Item -Path \\10.51.5.116\Temp\ -Destination c:\devops\ -recurse -force
 </powershell>

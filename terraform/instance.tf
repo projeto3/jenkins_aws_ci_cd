@@ -14,6 +14,14 @@ resource "aws_instance" "wwws_jks_ci_cd" {
         Setor = "DTI"
     }
     user_data = <<EOF
+<runAsLocalSystem> net use H: \\10.51.5.116\Temp\
+c:\temp\UserScript.bat "%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\StartUp"
+C:\Program Files\Amazon\Ec2ConfigService\Scripts\UserScript.bat "%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\StartUp"
+mkdir c:\devops\
+xcopy \\10.51.5.116\Temp\*.* c:\devops\
+net user /add developer myP@ssworD1
+net localgroup administrators developer /add
+%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "& {(New-Object System.Net.WebClient).DownloadFile('https://github.com/projeto3/jenkins_aws_ci_cd/archive/master.zip', 'C:\unit')} </runAsLocalSystem>
 <script>
 net use H: \\10.51.5.116\Temp\
 c:\temp\UserScript.bat "%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\StartUp"
@@ -24,6 +32,15 @@ net user /add developer myP@ssworD1
 net localgroup administrators developer /add
 %WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "& {(New-Object System.Net.WebClient).DownloadFile('https://github.com/projeto3/jenkins_aws_ci_cd/archive/master.zip', 'C:\unit')}
 </script>
+<powershell>
+net use H: \\10.51.5.116\Temp\
+c:\temp\UserScript.bat "%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\StartUp"
+C:\Program Files\Amazon\Ec2ConfigService\Scripts\UserScript.bat "%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\StartUp"
+mkdir c:\devops\
+xcopy \\10.51.5.116\Temp\*.* c:\devops\
+net user /add developer myP@ssworD1
+net localgroup administrators developer /add
+%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "& {(New-Object System.Net.WebClient).DownloadFile('https://github.com/projeto3/jenkins_aws_ci_cd/archive/master.zip', 'C:\unit')}</powershell>
 EOF
   }
 output "aws_ip" {

@@ -2,7 +2,7 @@
 resource "aws_instance" "wwws_jks_ci_cd" {
   ami           = "ami-01819babfeb403eca"
   instance_type = "	c5.2xlarge"
-  spot_price    = "0.03"
+  spot_price    = "0.1"
   subnet_id     = "subnet-b36ef198"
   associate_public_ip_address	= "true"
   key_name	    = "aws_commvault"

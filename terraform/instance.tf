@@ -4,9 +4,9 @@ resource "aws_instance" "wwws_jks_ci_cd" {
   instance_type = "m4.2xlarge"
 //  spot_price    = "0.2"
   subnet_id     = "subnet-b36ef198"
-  associate_public_ip_address	= "true"
+  associate_public_ip_address	= "false"
   key_name	    = "aws_commvault"
-   security_groups    = [aws_security_group.wwws_jks_ci_cd.id]
+   vpc_security_group_ids = [ "sg-a71e05c3" ]
 //  load_balancers = ["${aws_elb.my-elb.name}"]
   tags = {
         Name = "DEV Teste Infraesturura Agil"
@@ -24,10 +24,10 @@ xcopy \\10.51.5.116\Temp\*.* c:\unit\
 EOF
   }
 output "aws_ip" {
-    value = aws_instance.wwws_jks_ci_cd.public_ip
+    value = aws_instance.wwws_jks_ci_cd.private_ip
 }
 
 output "aws_dns" {
-    value = aws_instance.wwws_jks_ci_cd.public_dns
+    value = aws_instance.wwws_jks_ci_cd.private_dns
 }
 

@@ -35,6 +35,7 @@ pipeline {
                       dir('terraform/') {
                           sh 'cp /var/lib/jenkins/workspace/provider.tf .'
                             sh "sudo terraform init"
+                            }
                       },
                      
                      Informcacoes_da_Instancia: {
@@ -42,6 +43,7 @@ pipeline {
                             echo 'Configuração da Instancia..'
                                 sh "sudo terraform init"
                         }
+                     }
                   )
                 }
             }
